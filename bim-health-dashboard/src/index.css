@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #0F1117;
+    color: #E0E0E0;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: #1A1D2E; }
+  ::-webkit-scrollbar-thumb { background: #2A2D3E; border-radius: 3px; }
+}
+
+@keyframes ringFill {
+  from { stroke-dashoffset: 314; }
+  to   { stroke-dashoffset: var(--target-offset); }
+}
+
+.score-ring-progress {
+  animation: ringFill 1.4s ease-out forwards;
+}
