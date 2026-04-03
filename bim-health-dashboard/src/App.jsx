@@ -14,6 +14,7 @@ import {
 } from "./utils/reportHistory";
 import ReportHistory from "./components/ReportHistory";
 import ExportButton      from "./components/ExportButton";
+import AboutModal from "./AboutModal";
 
 export default function App() {
   const [report,   setReport]   = useState(null);
@@ -21,6 +22,7 @@ export default function App() {
   const [history,   setHistory]   = useState(getHistory());
   const [trendData, setTrendData] = useState([]);
   const [delta,     setDelta]     = useState(null);
+  const [showAbout, setShowAbout] = useState(false);
 
   const fileRef = useRef();
 
@@ -79,6 +81,34 @@ export default function App() {
             <h1 className="text-[26px] font-bold text-white mb-2 tracking-tight">
               BIM Health Toolkit
             </h1>
+            {/* About button */}
+            <button
+              onClick={() => setShowAbout(true)}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm
+                        font-medium transition-all duration-200 cursor-pointer
+                        hover:text-white"
+              style={{
+                background: "#1A1D2E",
+                border: "1px solid #2A2D3E",
+                color: "#9CA3AF",
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = "#1E2235";
+                e.currentTarget.style.borderColor = "#4F6CF740";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = "#1A1D2E";
+                e.currentTarget.style.borderColor = "#2A2D3E";
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              About the app
+            </button>
             <p className="text-sm text-gray-500 leading-relaxed">
               Scan your Revit models for warnings, bloat,<br/>
               and parameter completeness — instantly.
@@ -171,6 +201,7 @@ export default function App() {
           </p>
 
         </div>
+        {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}
       </div>
     );
   }
