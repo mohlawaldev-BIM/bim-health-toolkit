@@ -65,7 +65,7 @@ export default function App() {
         <div className="w-full max-w-120">
 
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 flex flex-col items-center justify-center">
             <div className="w-16 h-16 rounded-[18px] flex items-center justify-center mx-auto mb-5"
                 style={{
                   background: "linear-gradient(135deg, #4F6CF7, #7C3AED)",
@@ -86,7 +86,7 @@ export default function App() {
               onClick={() => setShowAbout(true)}
               className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm
                         font-medium transition-all duration-200 cursor-pointer
-                        hover:text-white"
+                        hover:text-white mb-3"
               style={{
                 background: "#1A1D2E",
                 border: "1px solid #2A2D3E",
