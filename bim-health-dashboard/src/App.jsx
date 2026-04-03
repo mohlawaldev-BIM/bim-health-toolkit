@@ -14,7 +14,7 @@ import {
 } from "./utils/reportHistory";
 import ReportHistory from "./components/ReportHistory";
 import ExportButton      from "./components/ExportButton";
-import AboutModal from "./AboutModal";
+import AboutModal from "./components/AboutModal";
 
 export default function App() {
   const [report,   setReport]   = useState(null);
